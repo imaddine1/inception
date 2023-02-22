@@ -1,12 +1,20 @@
-FROM alpine
+FROM debian
 
-# first update the alpine && add openrc for service command to work && now add nginx
-RUN apk update && apk add openrc && apk add nginx 
+RUN apt-get -y update  && apt-get -y install nginx
 
-RUN openrc && touch /run/openrc/softlevel
+# Copy the Nginx config
 
-# turn on nginx
-#RUN rc-service nginx start
+COPY  web-site/ /var/www/html
 
-#RUN /etc/init.d/nginx start
+COPY default /etc/nginx/sites-available/
 
+RUN apt-get install -y wget
+
+RUN apt-get -y install git
+
+RUN apt -y install zsh && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# Expose the port for access
+EXPOSE 443
+
+# Run the Nginx server
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
