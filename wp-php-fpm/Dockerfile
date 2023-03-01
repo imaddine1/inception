@@ -15,7 +15,10 @@ RUN cd /var/www/html && wget https://wordpress.org/latest.tar.gz && tar xvf late
  
 RUN cd /var/www/html && rm -f latest.tar.gz
 
+#COPY lunch_php.sh /lunch_php.sh
 #this is depend on nginx lunch with fsgi configered well
 COPY wp-config.php /var/www/html/wordpress/
 
-RUN service php7.4-fpm start
+EXPOSE 9000 
+
+CMD ["bash", "/lunch_php.sh"]

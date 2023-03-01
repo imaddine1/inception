@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+    
+  db:
+    #container_name: maria_cont
+    build: ./maria_db
+    #image: maria_img
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=test_db
+      - MYSQL_USER=imad
+      - MYSQL_PASSWORD=imad123
+    networks:
+      - app-network
+
+  # wp:
+  #   depends_on:
+  #     - db
+  #   build:
+  #     context: ./wp-php-fpm
+  #   ports:
+  #     - 9000:9000
+  #   #container_name: wp_cont
+  #   image: wp_img
+  #   volumes:
+  #     - wordpress:/var/www/html/
+  #   networks:
+  #     - app-network
+
+  # nginx_service:
+  #   depends_on:
+  #     - wp
+  #   build:
+  #     context: ./nginx
+  #   ports:
+  #     - "443:443"
+  #  # container_name: nginx_cont
+  #   image: nginx_img
+  #   restart: always
+  #   volumes:
+  #     - nginx_vl:/etc/nginx
+  #   networks:
+  #     - app-network
+
+
+volumes:
+  nginx_vl: 
+  wordpress: 
+networks:
+  app-network:
+    driver: bridge  
