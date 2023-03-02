@@ -6,9 +6,11 @@ RUN apt-get update
 
 RUN apt -y install mariadb-server mariadb-client
 
-COPY database.sql /docker-entrypoint-initdb.d/
+COPY database.sql .
+
+COPY db.sh ./startup.sh
 
 EXPOSE 3306
 
 
-CMD ["mysqld_safe"]
+CMD ["/bin/bash", "./startup.sh"]
