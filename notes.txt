@@ -1,0 +1,3 @@
+it's recommanded to know how socket work in propre manner
+
+I really need to know about deamon proccess , and what they mean by deamonize in container
