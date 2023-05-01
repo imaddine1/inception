@@ -2,11 +2,11 @@ version: "3.8"
 
 services:    
   db:
-    build: ./maria_db/.
-    container_name: maria-cont
     env_file:
       - .env
-    service_name: db
+    build: ./mariadb/.
+    container_name: maria-cont
+    image: mariadb:mytag
     restart: always
     networks:
       - app-network
@@ -16,12 +16,12 @@ services:
   wordpress:
     depends_on:
        - db
-    build:
-      context: ./wp-php-fpm/.
-    container_name: wordpress-cont
     env_file:
       - .env
-    service_name: wordpress
+    build:
+      context: ./wordpress/.
+    container_name: wordpress-cont
+    image: wordpress:mytag
     volumes:
       - Wordpress:/var/www/html/
     networks:
@@ -33,7 +33,7 @@ services:
     build:
       context: ./nginx/.
     container_name: nginx-cont
-    service_name: nginx
+    image: nginx:mytag
     ports:
       - "443:443"
     restart: always
