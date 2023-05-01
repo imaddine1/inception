@@ -1,3 +1,13 @@
 it's recommanded to know how socket work in propre manner
 
 I really need to know about deamon proccess , and what they mean by deamonize in container
+
+it is necessary to add apt-get install -y php-mysql this command make wordpress recognize mariadb
+
+i need to know aoubt enetrypoint in dockerfile and why it's forbbiden 
+
+######################## some answer ##############################
+
+.env it's for keeping the sensitive information safe , how is that by save it the passwords in .env file and igored it to push it in github
+    -- this is the only reason that i think of
+

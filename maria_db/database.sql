@@ -1,7 +1,7 @@
-CREATE DATABASE wp_db;
+CREATE DATABASE $MYSQL_DATABASE;
 
-CREATE USER 'imad'@'localhost' identified by 'imad123';
+CREATE USER '$MYSQL_USER'@'$MYSQL_HOST' identified by '$MYSQL_PASSWORD';
 
-GRANT ALL PRIVILEGES ON wp_db.* TO 'imad'@'localhost';
+GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO ''$MYSQL_USER''@'localhost';
 
 FLUSH PRIVILEGES;

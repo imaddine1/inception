@@ -1,16 +1,21 @@
 FROM debian:bullseye
 
-ENV MARIADB_ROOT_PASSWORD=root
+RUN apt-get  -y update
 
-RUN apt-get update
+# test with environment
 
-RUN apt -y install mariadb-server mariadb-client
+ENV MYSQL_DATABASE=wordpress
+ENV MYSQL_USER=imad
+ENV MYSQL_PASSWORD=imad123
+ENV MYSQL_HOST=localhost
 
-COPY database.sql .
+RUN apt -y install mariadb-server vim 
+RUN apt-get install  -y dos2unix
+
+#mariadb-client
+#COPY database.sql .
 
 COPY db.sh ./startup.sh
-
 EXPOSE 3306
 
-
-CMD ["/bin/bash", "./startup.sh"]
+CMD bash -c "dos2unix startup.sh && /startup.sh"
