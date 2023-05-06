@@ -27,7 +27,10 @@ skip-external-locking
 
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
-bind-address            = 0.0.0.0
+
+# i added this line instead of using 0.0.0.0 this make mariadb use the interface that created 
+# by docker compose and use it to listening to this interface
+bind-address            = db
 
 #
 # * Fine Tuning
