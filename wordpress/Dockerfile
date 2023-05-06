@@ -19,5 +19,6 @@ COPY www.conf /etc/php/7.4/fpm/pool.d/
 COPY wp-config.php /var/www/html/wordpress/
 
 EXPOSE 9000
-# this command work fine but there is a litte problem in the last command
+
+# this command make php work in foreground
 CMD service php7.4-fpm start && service php7.4-fpm stop && php-fpm7.4 -F

@@ -1,7 +1,8 @@
 service mariadb start
-mysql -e "CREATE DATABASE $MYSQL_DATABASE;"
-mysql -e "CREATE USER $MYSQL_USER@$MYSQL_HOST identified by '$MYSQL_PASSWORD;'"
-mysql -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO $MYSQL_USER@$MYSQL_HOST;"
+mysql -e "CREATE DATABASE IF NOT EXISTS wordpress ;"
+mysql -e "CREATE USER IF NOT EXISTS imad@'%' IDENTIFIED BY 'imad123' ;"
+mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO imad@'%' ;"
+#mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MAIN_ROOT';"
 service mariadb stop
-sleep 1
+#kill $(cat /var/run/mysqld/mysqld.pid)
 mysqld_safe

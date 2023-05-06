@@ -11,3 +11,9 @@ i need to know aoubt enetrypoint in dockerfile and why it's forbbiden
 .env it's for keeping the sensitive information safe , how is that by save it the passwords in .env file and igored it to push it in github
     -- this is the only reason that i think of
 
+################### this is for mac environment ##################
+i need to delete dos2unix in mariadb, Cuz this is problem faced me in windows not in mac
+
+###################### for security reasons ######################
+i need to make all my request of network coming form localhost ip 
+delete environement variables after use in it

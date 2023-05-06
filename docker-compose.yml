@@ -22,6 +22,7 @@ services:
       context: ./wordpress/.
     container_name: wordpress-cont
     image: wordpress:mytag
+    restart: always
     volumes:
       - Wordpress:/var/www/html/
     networks:
@@ -49,4 +50,4 @@ volumes:
     name : mariadb
 networks:
   app-network:
-    name : app-web
+    name: inception-network
