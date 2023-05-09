@@ -6,10 +6,8 @@ RUN apt-get -y update --fix-missing  && apt-get -y install nginx
 # configuration of nginx
 COPY nginx.conf /etc/nginx/
 
-
-# RUN chown -R www-data.www-data /var/www/html \
-#    && chmod -R 755 /var/www/html
-
+RUN chown -R www-data.www-data /var/www/html \
+   && chmod -R 755 /var/www/html
 
 #COPY website /var/www/html
 # CREATE CERTIFICATE TO USING HTTPS

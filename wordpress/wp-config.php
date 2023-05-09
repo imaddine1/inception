@@ -59,14 +59,11 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define('WP_DEBUG', false );
-
-/* Add any custom values between this line and the "stop editing" line. */
-
-
+define( 'WP_DEBUG', true );
 
 /* That's all, stop editing! Happy publishing. */
 
+define('WP_AUTO_LOGIN_ADMIN', true);
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
         define( 'ABSPATH', __DIR__ . '/' );

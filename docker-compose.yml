@@ -50,4 +50,4 @@ volumes:
     name : mariadb
 networks:
   app-network:
-    name: inception-network
+    name: web-network
