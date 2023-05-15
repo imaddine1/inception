@@ -9,4 +9,4 @@ COPY 50-server.cnf /etc/mysql/mariadb.conf.d/
 
 EXPOSE 3306
 
-CMD bash -c "dos2unix startup.sh && /startup.sh"
+CMD ["bash", "startup.sh"]
