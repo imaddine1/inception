@@ -17,3 +17,6 @@ i need to delete dos2unix in mariadb, Cuz this is problem faced me in windows no
 ###################### for security reasons ######################
 i need to make all my request of network coming form localhost ip 
 delete environement variables after use in it
+
+###################### makefile things ######################
+in case used make rm before use make all , you need to make sure that there is something to erase or not for each step

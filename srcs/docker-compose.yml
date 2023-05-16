@@ -4,7 +4,7 @@ services:
   db:
     env_file:
       - .env
-    build: ./mariadb/.
+    build: ./requirements/mariadb/.
     container_name: maria-cont
     image: mariadb:mytag
     restart: always
@@ -18,8 +18,7 @@ services:
        - db
     env_file:
       - .env
-    build:
-      context: ./wordpress/.
+    build: ./requirements/wordpress/.
     container_name: wordpress-cont
     image: wordpress:mytag
     restart: always
@@ -31,8 +30,7 @@ services:
   nginx:
     depends_on:
       - wordpress
-    build:
-      context: ./nginx/.
+    build: ./requirements/nginx/.
     container_name: nginx-cont
     image: nginx:mytag
     ports:
