@@ -13,6 +13,7 @@ services:
     volumes:
       - DataBase:/var/lib/mysql/
 
+
   wordpress:
     depends_on:
        - db
@@ -41,11 +42,25 @@ services:
     networks:
       - app-network
 
+# volumes:
+#   Wordpress:
+#     name : wordpress
+#   DataBase:
+#     name : mariadb
 volumes:
   Wordpress:
-    name : wordpress
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/iharile/Desktop/inception/srcs/data
   DataBase:
-    name : mariadb
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/iharile/Desktop/inception/srcs/files
+  
 networks:
   app-network:
     name: web-network

@@ -30,7 +30,7 @@ skip-external-locking
 
 # i added this line instead of using 0.0.0.0 this make mariadb use the interface that created 
 # by docker compose and use it to listening to this interface
-bind-address = db
+bind-address = 0.0.0.0
 #
 # * Fine Tuning
 #
