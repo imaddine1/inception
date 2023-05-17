@@ -1,5 +1,5 @@
 # you need to create your own network cause there is no default ip
-FROM debian:bullseye
+FROM debian:buster
 
 RUN apt-get -y update --fix-missing  && apt-get -y install nginx
 

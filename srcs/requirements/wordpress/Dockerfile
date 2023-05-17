@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 
 RUN apt-get update -y --fix-missing
            
@@ -12,7 +12,7 @@ RUN cd /var/www/html && wget https://wordpress.org/latest.tar.gz && tar xvf late
  
 RUN cd /var/www/html && rm -f latest.tar.gz
 
-COPY www.conf /etc/php/7.4/fpm/pool.d/
+COPY www.conf /etc/php/7.3/fpm/pool.d/
 
 COPY wp /usr/local/bin/
 
