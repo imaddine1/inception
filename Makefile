@@ -1,10 +1,17 @@
+PATH_DOCKER=-f ./srcs/docker-compose.yml
 
-all:
-	docker compose -f ./srcs/docker-compose.yml up --build -d 
+all: up
 
-rm:
-	docker rm -f $$(docker container ls -qa)
-	docker rmi -f $$(docker images -qa)
-	docker volume rm $$(docker volume ls -q)
+up:
+	mkdir -p  db
+	mkdir -p files
+	docker-compose $(PATH_DOCKER) up  --build -d
 
-re: re all
+down:
+	docker-compose $(PATH_DOCKER) down --volumes
+
+rm: down
+	docker system prune -af
+	rm -rf db files
+
+re: rm all

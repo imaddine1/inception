@@ -20,3 +20,17 @@ delete environement variables after use in it
 
 ###################### makefile things ######################
 in case used make rm before use make all , you need to make sure that there is something to erase or not for each step
+
+########################## bind mounting ##################
+i always need to build images with no cache to work, WHY !!
+
+##################### BIND MOUNT ####################
+i need to check is every things is up in docker-compose up --build -d : this command make conatainers work in background without check if container is finish executing his services , 
+that's why i will make sure that wordpress created his file before nginx start.
+
+
+
+
+############## SOME THOUGHT ###############
+i don't need to delete cache to make bind mount working
+docker-compose is helping me a lot then using docker compose 

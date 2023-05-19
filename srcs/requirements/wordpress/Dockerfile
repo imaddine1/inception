@@ -4,13 +4,13 @@ RUN apt-get update -y --fix-missing
            
 RUN apt-get install -y wget php php-fpm  php-mysql mariadb-client
 
-# RUN  mkdir /var/www && \
-#     mkdir /var/www/html && \
-#     mkdir /var/www/html/wordpress
+RUN  mkdir /var/www && \
+    mkdir /var/www/html && \
+    mkdir /var/www/html/wordpress
 
-# RUN cd /var/www/html && wget https://wordpress.org/latest.tar.gz && tar xvf latest.tar.gz
+#RUN cd /var/www/html && wget https://wordpress.org/latest.tar.gz && tar xvf latest.tar.gz
  
-# RUN cd /var/www/html && rm -f latest.tar.gz
+#RUN cd /var/www/html && rm -f latest.tar.gz
 
 COPY www.conf /etc/php/7.3/fpm/pool.d/
 

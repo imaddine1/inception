@@ -12,11 +12,17 @@ services:
       - app-network
     volumes:
       - DataBase:/var/lib/mysql/
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u$$MY_USER", "-p$$MY_PASS"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 
   wordpress:
     depends_on:
-       - db
+      db:
+        condition: service_healthy
     env_file:
       - .env
     build: ./requirements/wordpress/.
@@ -53,13 +59,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/iharile/Desktop/inception/srcs/data
+      device: /Users/iharile/Desktop/inception/files
   DataBase:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/iharile/Desktop/inception/srcs/files
+      device: /Users/iharile/Desktop/inception/db
   
 networks:
   app-network:
