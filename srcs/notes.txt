@@ -33,4 +33,9 @@ that's why i will make sure that wordpress created his file before nginx start.
 
 ############## SOME THOUGHT ###############
 i don't need to delete cache to make bind mount working
-docker-compose is helping me a lot then using docker compose 
+docker-comp]*+ose is helping me a lot then using docker compose 
+
+################## VM things ##############
+i can't create images Cuz of the ip of vm always docker will protect from useof some hackers to pull a lot of images 
+that's why said to me you are above the maximum rate of pulls
+but when i login to my account it's work
