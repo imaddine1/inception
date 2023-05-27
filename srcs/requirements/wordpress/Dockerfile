@@ -12,9 +12,9 @@ RUN cd /var/www/html && wget https://wordpress.org/latest.tar.gz && tar xvf late
  
 RUN cd /var/www/html && rm -f latest.tar.gz
 
-COPY www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
 
-COPY wp /usr/local/bin/
+COPY ./conf/wp /usr/local/bin/
 
 RUN cd /usr/local/bin && chmod +x wp
 

@@ -4,7 +4,7 @@ FROM debian:buster
 RUN apt-get -y update --fix-missing  && apt-get -y install nginx
 
 # configuration of nginx
-COPY nginx.conf /etc/nginx/
+COPY ./conf/nginx.conf /etc/nginx/
 
 RUN chown -R www-data.www-data /var/www/html \
    && chmod -R 755 /var/www/html
