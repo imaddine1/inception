@@ -4,15 +4,15 @@ all: up
 
 up:
 	mkdir -p  /home/iharile/data/files
-	mkdir -p /home/iharile/data/db
-	chown iharile.iharile /home/iharile/data 
+	mkdir -p /home/iharile/data/db 
 	docker compose $(PATH_DOCKER) up  --build -d
 
 down:
-	docker compose $(PATH_DOCKER) down --volumes
+	docker compose $(PATH_DOCKER) down 
 
-rm: down
+rm:
+	docker compose $(PATH_DOCKER) down --volumes
 	docker system prune -af
-	rm -rf /home/iharile/data/db /home/iharile/data/files
+	rm -rf /home/iharile/data
 
 re: rm all

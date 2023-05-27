@@ -16,6 +16,8 @@ COPY www.conf /etc/php/7.3/fpm/pool.d/
 
 COPY wp /usr/local/bin/
 
+#COPY wp-config.php /var/www/html/wordpress
+
 RUN cd /usr/local/bin && chmod +x wp
 
 COPY /tools/create.sh .
